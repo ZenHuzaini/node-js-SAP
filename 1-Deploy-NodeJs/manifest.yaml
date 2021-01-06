@@ -1,0 +1,6 @@
+---
+applications:
+  - name: animalApp
+    random-route: true
+    path: SAPCloud
+    memory: 128M

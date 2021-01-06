@@ -1,0 +1,9 @@
+to push after make changes : cf push
+to access app overview : cf apps
+
+to delete : cf delete myapp (you can chage the app name, regarding in manifest)
+get logs -to dump : cf logs myapp --recent
+
+stream logs for app :
+linux : cf logs myapp | grep -v RTR
+windows : cf logs myapp | findstr /V RTR
