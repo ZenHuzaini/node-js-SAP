@@ -7,3 +7,6 @@ get logs -to dump : cf logs myapp --recent
 stream logs for app :
 linux : cf logs myapp | grep -v RTR
 windows : cf logs myapp | findstr /V RTR
+
+
+more: https://developers.sap.com/group.scp-5-node.html

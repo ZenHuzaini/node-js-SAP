@@ -1,0 +1,5 @@
+https://developers.sap.com/tutorials/cp-apm-nodejs-create-service.html
+
+install cds globally : npm i -g @sap/cds-dk
+add project : cds init my-bookshop
+to start cds server : cds watch
