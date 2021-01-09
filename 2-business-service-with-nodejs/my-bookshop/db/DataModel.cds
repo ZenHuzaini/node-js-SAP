@@ -12,6 +12,7 @@ entity Books {
         author   : Association to Authors;
         language : Language;
         stock    : Integer;
+        price    : Integer;
 }
 
 entity Authors {
