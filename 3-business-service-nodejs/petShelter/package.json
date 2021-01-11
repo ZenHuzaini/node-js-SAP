@@ -1,5 +1,5 @@
 {
-  "name": "my-bookshop",
+  "name": "petShelter",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -11,7 +11,7 @@
     "express": "^4"
   },
   "devDependencies": {
-    "sqlite3": "^5.0.1"
+    "sqlite3": "^5"
   },
   "scripts": {
     "start": "cds run"

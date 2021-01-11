@@ -3,3 +3,63 @@ https://developers.sap.com/tutorials/cp-apm-nodejs-create-service.html
 install cds globally : npm i -g @sap/cds-dk
 add project : cds init my-bookshop
 to start cds server : cds watch
+
+dont forget to install npm
+npm install
+
+//deploy data model to database
+cds deploy --to sqlite:db/my-bookshop.db
+
+//open the newly created db
+sqlite3 db/my-bookshop.db -cmd .dump
+
+
+
+/// 2. DEPLOY CAP business service to SCP (SAP cloud platform / Cloud foundry)
+
+1.install sap hanatria
+npm add @sap/hana-client --save
+
+//in local we will use sql, but in SCP we will use SAP HANA ofr database
+//here we first must crete service SAP HANA manually (along with an HDI container and a database schema).
+by :
+cf create-service hanatrial hdi-shared my-bookshop-db
+
+NOTE: my-bookshop-db is the database name which is set ge/db manifest when we do 
+```cds build --production ``` later
+
+to cehck the status:
+cf service my-bookshop-db
+
+
+DONT forget
+to change in package json
+"cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "model": "*",
+        "credentials": {
+          "database": "db/petShelther.db"
+        }
+      }
+    }
+
+    to
+
+"cds": {
+    "requires": {
+      "db": {
+        "kind": "sql"
+      }
+    }
+
+2. build
+Now, build and deploy the project for a production environment:
+
+cds build --production
+cf push -f gen/db
+cf push -f gen/srv --random-route
+
+get logs
+cf logs petShelter-srv --recent
