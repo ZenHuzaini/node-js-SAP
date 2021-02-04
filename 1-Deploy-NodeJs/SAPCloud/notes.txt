@@ -1,12 +1,25 @@
-to push after make changes : cf push
-to access app overview : cf apps
+#CONFIG COMMANDS
+Login to your api before cf push
+1. open trial account https://account.hanatrial.ondemand.com/trial/#/globalaccount/d96adf8a-23b0-416e-97bf-c9067ee60ad4/subaccount/b2af7b37-6cf6-4939-be2a-072360f56a35/subaccountoverview
+2. choos eyour endpoint / copy
+3. open terminal and then login : cf login -a xxxxxxx.com
+4. enter pwd, user, etc 
 
-to delete : cf delete myapp (you can chage the app name, regarding in manifest)
-get logs -to dump : cf logs myapp --recent
 
-stream logs for app :
+*to push after make changes : cf push YourAppName
+*to access app overview : cf apps
+
+*to delete : cf delete myapp (you can chage the app name, regarding in manifest)
+*get logs -to dump : cf logs myapp --recent
+
+*stream logs for app :
 linux : cf logs myapp | grep -v RTR
 windows : cf logs myapp | findstr /V RTR
 
-
 more: https://developers.sap.com/group.scp-5-node.html
+
+##CHECK INSTALLED PLIUGINS
+cf plugins
+
+##CONFIGURATION FULL
+https://developers.sap.com/group.scp-local-tools.html
