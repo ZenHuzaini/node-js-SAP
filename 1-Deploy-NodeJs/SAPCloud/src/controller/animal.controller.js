@@ -26,6 +26,10 @@ module.exports = class AnimalController {
   }
 
   updateAnimal(req, res) {
+    const id = req.params.id;
+    if (!this.animals.findIndex(1)) {
+      return res.status(200).send("Not found");
+    }
     return res.status(200).send("update");
   }
 
