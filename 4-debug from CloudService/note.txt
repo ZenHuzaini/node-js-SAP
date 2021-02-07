@@ -1,0 +1,26 @@
+1. add in package json 
+node --inspect 
+-> means you wanna inspect / debug app in chrome
+
+2. add credentials
+cf enable-ssh <app-name>
+cf allow-space-ssh <space-name>
+cf restage <app-name>
+
+3. debug options
+.. Open in launch  debug -> create launch -> Node.js 
+copy 
+{
+            "type": "node",
+            "request": "attach",
+            "name": "Attach cloud app ",
+            "address": "localhost",
+            "port": 9229,
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/home/vcap/app"
+          }
+
+4. try running
+cf ssh <APP_NAME> -N -T -L 9229:127.0.0.1:9229
+
+5. Start accesing the endpoint that has console.log ... it will be shown
