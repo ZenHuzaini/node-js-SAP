@@ -1,0 +1,6 @@
+---
+applications:
+- name: connectVSandCF
+  random-route: true
+  path: /
+  memory: 128M

@@ -1,0 +1,66 @@
+1. aspects
+you can add aspect. to be reused in other entities
+
+aspect addInfo{
+    genre: Genre;
+    language: String;
+}
+
+entity Books: addInfo{
+    key ID: string;
+    name: string;
+}
+
+2. Type
+you can use type as well
+
+entity Books: addInfo{
+    key ID: string;
+    name: Author
+}
+
+type Author: String enum{
+    Zen; Lukasz;
+}
+
+3. Namespaces
+can be used if we wanna use it in other project
+
+namespace foo.bar
+entity Something{}
+entity About{}
+entity You : AndMe {}
+
+it will be called like this or equivalent to :
+entity foo.bar.Something{}
+entity foo.bar.About{}
+entity foo.bar.You : foo.bar.AndMe{}
+
+
+4. avoid over ormalization
+cds supports json like model
+
+entity Author{
+    key ID: UUID;
+    name: String
+    email : Array of{
+        emailAddress: string;
+        primary: boolean;
+    }
+    phone : Array of {...}
+}
+
+
+!!!!!don't do like this
+
+entity Contacts{
+    key ID: UUID;
+    name: String
+    email : Composition of many EmailAdresses on emails.contact=$self
+}
+
+entity EmailAdresses{
+    contact : Association to Contacts
+    key ID: UUID;
+    kind: String;
+}
